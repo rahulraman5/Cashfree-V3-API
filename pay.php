@@ -56,13 +56,13 @@ $frmData = array(
        
 
 ?>
+<h4>Click on Pay Now button for payment</h4>
+<span hidden class="order-token">Payment Session Id :</span> <input type="hidden" placeholder="order_token" id="paymentSessionId"
+    value="<?php echo"$session"?>" class="inputText" >
 
-<span class="order-token">Payment Session Id :</span> <input type="text" placeholder="order_token" id="paymentSessionId"
-    value="<?php echo"$session"?>" class="inputText">
-
-<button class="btn-render" onclick=render()>Render</button>
+<button class="btn-render" onclick=render()>Pay Now</button>
 </div>
-<hr>
+
 <script>
 function render() {
     let paymentSessionId = document.getElementById("paymentSessionId").value;

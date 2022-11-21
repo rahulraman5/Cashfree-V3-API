@@ -29,13 +29,13 @@
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
-                    <input type="text" id="form6Example1" name ="orderid" class="form-control"   required/>
+                    <input type="text"  id="form6Example1" name ="orderid" class="form-control" placeholder="Please enter Order ID" required/>
                     <label class="form-label" for="form6Example1">Order Id</label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-outline">
-                    <input type="text" id="form6Example2" name ="orderamount" class="form-control" required/>
+                    <input type="number" id="form6Example2" name ="orderamount" class="form-control" placeholder="Please enter Amount" required/>
                     <label class="form-label" for="form6Example2">Amount</label>
                 </div>
             </div>
@@ -44,13 +44,13 @@
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
-                    <input type="text" id="form6Example1" name ="ordernote" class="form-control" required />
+                    <input type="text" id="form6Example1" name ="ordernote" class="form-control" placeholder="Please enter Order Note" required />
                     <label class="form-label" for="form6Example1">Order Note</label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-outline">
-                    <input type="text" id="form6Example2" name ="customername"class="form-control" required/>
+                    <input type="text" id="form6Example2" name ="customername"class="form-control" placeholder="Please enter Customer Name" required/>
                     <label class="form-label" for="form6Example2">Customer name</label>
                 </div>
             </div>
@@ -58,13 +58,13 @@
         <div class="row mb-4">
             <div class="col">
                 <div class="form-outline">
-                    <input type="email" id="form6Example1" name ="customeremail" class="form-control" required />
+                    <input type="email" id="form6Example1" name ="customeremail" class="form-control" placeholder="Please enter Customer Email" required />
                     <label class="form-label" for="form6Example1">Customer Email</label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-outline">
-                    <input type="text" pattern="[789][0-9]{9}" name ="cuatomerphone" id="form6Example2" class="form-control" required/>
+                    <input type="text" pattern="[789][0-9]{9}" name ="cuatomerphone" id="form6Example2" placeholder="Please enter Customer Phone" class="form-control" required/>
                     <label class="form-label" for="form6Example2">Customer Phone</label>
                 </div>
             </div>
