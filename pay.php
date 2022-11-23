@@ -3,7 +3,7 @@
 
 $frmData = array(
 
-     'order_id' => $_POST['orderid'],
+     'order_id' => 'OrderId'.rand(),
      'order_amount' => $_POST['orderamount'],
      'order_note' => $_POST['ordernote'],
      'order_currency' => 'INR',
@@ -51,14 +51,14 @@ $frmData = array(
         $returnCode = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
         $resp = json_decode($result, true);
-       
+     
         $session =  $resp['payment_session_id'];
        
 
 ?>
 <h4>Click on Pay Now button for payment</h4>
-<span hidden class="order-token">Payment Session Id :</span> <input type="hidden" placeholder="order_token" id="paymentSessionId"
-    value="<?php echo"$session"?>" class="inputText" >
+<span hidden class="order-token">Payment Session Id :</span> <input type="hidden" placeholder="order_token"
+    id="paymentSessionId" value="<?php echo"$session"?>" class="inputText">
 
 <button class="btn-render" onclick=render()>Pay Now</button>
 </div>
