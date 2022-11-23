@@ -17,7 +17,7 @@
 
     <!-- 2 column grid layout with text inputs for the first and last names -->
 
-    <h3 style="text-align: center; margin-top:102px;">Cashfree V3 pi Demo</h3>
+    <h3 style="text-align: center; margin-top:102px;">Cashfree V3 Api Demo</h3>
     <div class="container" style="margin-top: 10px !important;
     background-color: grey;
     width: 50%;
