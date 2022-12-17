@@ -13,7 +13,7 @@
     <title>V3 API</title>
 </head>
 
-<body>
+<body style="background-color: #6933d3; color:white !important;">
     <?php 
 
    $orderid = $_REQUEST['order_id'];
@@ -48,16 +48,16 @@
 
 
     <?php if($resps[0]['payment_status'] != 'SUCCESS'){?>
-    <div class="alert alert-danger" role="alert">
-        <h3 style='text-align:center !important;margin-top:50px;'>Payment failed
+    <div class="alert" role="alert">
+        <h3 style='text-align:center !important;margin-top:50px;'>Payment Failed
             <br>Order Id <?php echo $orderid;?>
     </div>
 
     <?php }else{?>
 
 
-    <div class="alert alert-success" role="alert">
-        <h3 style='text-align:center !important;margin-top:50px;'>Payment successful
+    <div class="alert" role="alert">
+        <h3 style='text-align:center !important;margin-top:50px;'>Payment Successful
             <br>Order Id: <?php echo $orderid; ?>
 
            <?php } ?>
