@@ -13,69 +13,81 @@
     <title>V3 API</title>
 </head>
 
-<body>
+<body style="background-color: #6933d3; color:white !important;">
+    <div class="row">
+        <div class="col-md-4">
+            <h3 style="margin-top: 50% !important; text-align: center;">Cashfree V3 Api Demo</h3>
 
+        </div>
+        <div class="col-md-4" style="float: right !important;">
+
+            <div class="container" style="margin-top: 19% !important;margin-left: 25% !important;  padding: 7%; border-style: dotted; border-color: white !important; box-shadow: 1px 2px 11px 5px white !important;">
+
+                <form method="post" action="pay.php">
+
+
+                    <div class="md-4">
+
+                        <div class="col">
+
+                            <div class="form-outline">
+                                <label class="form-label" for="form6Example2">Amount</label>
+                                <input type="number" id="form6Example2" name="orderamount" class="form-control"
+                                    placeholder="Please enter Amount" required />
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <div class="col">
+                            <div class="form-outline">
+                                <label class="form-label" for="form6Example1">Order Note</label>
+                                <input type="text" id="form6Example1" name="ordernote" class="form-control"
+                                    placeholder="Please enter Order Note" required />
+
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example2">Customer name</label>
+
+                                    <input type="text" id="form6Example2" name="customername" class="form-control"
+                                        placeholder="Please enter Customer Name" required />
+                                </div>
+                            </div>
+
+
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example1">Customer Email</label>
+
+                                    <input type="email" id="form6Example1" name="customeremail" class="form-control"
+                                        placeholder="Please enter Customer Email" required />
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-outline">
+                                    <label class="form-label" for="form6Example2">Customer Phone</label>
+
+                                    <input type="text" pattern="[789][0-9]{9}" name="cuatomerphone" id="form6Example2"
+                                        placeholder="Please enter Customer Phone" class="form-control" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
     <!-- 2 column grid layout with text inputs for the first and last names -->
 
-    <h3 style="text-align: center; margin-top:102px;">Cashfree V3 Api Demo</h3>
-    <div class="container" style="margin-top: 10px !important;
-    background-color: grey;
-    width: 50%;
-    padding: 27px 26px 3px 14px;">
 
-        <form method="post" action="pay.php">
-
-
-            <div class="md-4">
-
-                <div class="col">
-                    <div class="form-outline">
-                        <input type="number" id="form6Example2" name="orderamount" class="form-control"
-                            placeholder="Please enter Amount" required />
-                        <label class="form-label" for="form6Example2">Amount</label>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <div class="col">
-                    <div class="form-outline">
-                        <input type="text" id="form6Example1" name="ordernote" class="form-control"
-                            placeholder="Please enter Order Note" required />
-                        <label class="form-label" for="form6Example1">Order Note</label>
-                    </div>
-                </div>
-
-                <div class="mb-4">
-                    <div class="col">
-                        <div class="form-outline">
-                            <input type="text" id="form6Example2" name="customername" class="form-control"
-                                placeholder="Please enter Customer Name" required />
-                            <label class="form-label" for="form6Example2">Customer name</label>
-                        </div>
-                    </div>
-
-
-                    <div class="col">
-                        <div class="form-outline">
-                            <input type="email" id="form6Example1" name="customeremail" class="form-control"
-                                placeholder="Please enter Customer Email" required />
-                            <label class="form-label" for="form6Example1">Customer Email</label>
-                        </div>
-                    </div>
-                    <div class="col">
-                    <div class="form-outline">
-                        <input type="text" pattern="[789][0-9]{9}" name="cuatomerphone" id="form6Example2"
-                            placeholder="Please enter Customer Phone" class="form-control" required />
-                        <label class="form-label" for="form6Example2">Customer Phone</label>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
-        </form>
-    </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
