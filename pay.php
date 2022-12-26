@@ -1,4 +1,5 @@
 <script src="https://sdk.cashfree.com/js/ui/2.0.0/cashfree.sandbox.js"></script>
+<body onload="payment()">
 <?php
 
 $frmData = array(
@@ -56,16 +57,16 @@ $frmData = array(
        
 
 ?>
-<Body style="background-color: #6933d3; color:white !important;">
-<h4>Click on Pay Now button for payment</h4>
+<Body>
+<h4>Loading.....</h4>
 <span hidden class="order-token">Payment Session Id :</span> <input type="hidden" placeholder="order_token"
     id="paymentSessionId" value="<?php echo"$session"?>" class="inputText">
 
-<button class="btn-render" onclick=render()>Pay Now</button>
+
 </Body>
 
 <script>
-function render() {
+function payment() {
     let paymentSessionId = document.getElementById("paymentSessionId").value;
     if (paymentSessionId == "") {
         alert("No session_id specified");
@@ -75,3 +76,4 @@ function render() {
     cf.redirect();
 };
 </script>
+</body>
