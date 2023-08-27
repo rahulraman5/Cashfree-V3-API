@@ -52,16 +52,18 @@
 
 <div class="container">
     <div class="row mt-5">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
             <table class=" table table-bordered ">
             <tr>
                 <th >Order ID</th>
                 <th>Payment Status</th>
+                <th>Payment Id </th>
             </tr>
             <tr>
                 <td><?php echo $orderid; ?></td>
                 <td><?php echo $resps[0]['payment_status']; ?></td>
+                <td><?php echo $resps[0]['cf_payment_id']; ?></td>
             </tr>
         </table>
         </div>
