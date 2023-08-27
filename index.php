@@ -1,104 +1,62 @@
-<!doctype html>
-<html lang="en">
+<script src="https://sdk.cashfree.com/js/ui/2.0.0/cashfree.sandbox.js"></script>
 
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $product_name = $_POST["product_name"];
+    $product_price = $_POST["product_price"];
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    // Prepare order data for API request
+    $order_data = array(
+        "order_id" => "order_" . time(),
+        "order_amount" => $product_price,
+        "order_currency" => "INR",
+        "order_note" => "Additional order info",
+        "customer_details" => array(
+            "customer_id" => "12345",
+            "customer_name" => "name",
+            "customer_email" => "care@cashfree.com",
+            "customer_phone" => "9816512345"
+        ),
+        'order_meta'=> array(
+            'return_url' => 'http://localhost:7882/Project1/success.php?order_id={order_id}',
+            'notify_url' => 'https://eodw0819y97f3bz.m.pipedream.net',
+            'payment_methods' =>'' 
+        )
+    );
 
-    <title>V3 API</title>
-</head>
+    // Make cURL POST request to the API
+    $ch = curl_init("https://sandbox.cashfree.com/pg/orders");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($order_data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        "Content-Type: application/json",
+        "x-api-version: 2022-09-01",
+        "x-client-id: 5709a0de3cc1ab6452f8d0309075",
+        "x-client-secret: a45d1caef2943ae5bc7b4597ccc58aa103163781"
+    ));
 
-<body style="background-color: #6933d3; color:white !important;">
-    <div class="row">
-        <div class="col-md-4">
-            <h3 style="margin-top: 50% !important; text-align: center;">Cashfree V3 Api Demo</h3>
+    $response = curl_exec($ch); // Capture the response here
+    curl_close($ch);
 
-        </div>
-        <div class="col-md-4" style="float: right !important;">
+    // Handle the API response as needed
+    echo $response; // You can optionally echo this response, but you're not using it in this script
 
-            <div class="container" style="margin-top: 19% !important;margin-left: 25% !important;  padding: 7%; border-style: dotted; border-color: white !important; box-shadow: 1px 2px 11px 5px white !important;">
+    // Decode the response after capturing it
+    $response_data = json_decode($response, true);
+    $payment_session_id = $response_data['payment_session_id'];
+}
+?>
 
-                <form method="post" action="pay.php">
+<script>
+const paymentSessionId = "<?php echo $payment_session_id; ?>"; // PHP variable with payment session ID
+const cf = new Cashfree(paymentSessionId);
 
+// Function to redirect to checkout
+function redirectToCheckout() {
+    cf.redirect();
+}
 
-                    <div class="md-4">
-
-                        <div class="col">
-
-                            <div class="form-outline">
-                                <label class="form-label" for="form6Example2">Amount</label>
-                                <input type="number" id="form6Example2" name="orderamount" class="form-control"
-                                    placeholder="Please enter Amount" required />
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mb-4">
-                        <div class="col">
-                            <div class="form-outline">
-                                <label class="form-label" for="form6Example1">Order Note</label>
-                                <input type="text" id="form6Example1" name="ordernote" class="form-control"
-                                    placeholder="Please enter Order Note" required />
-
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <div class="col">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example2">Customer name</label>
-
-                                    <input type="text" id="form6Example2" name="customername" class="form-control"
-                                        placeholder="Please enter Customer Name" required />
-                                </div>
-                            </div>
-
-
-                            <div class="col">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example1">Customer Email</label>
-
-                                    <input type="email" id="form6Example1" name="customeremail" class="form-control"
-                                        placeholder="Please enter Customer Email" required />
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-outline">
-                                    <label class="form-label" for="form6Example2">Customer Phone</label>
-
-                                    <input type="text" pattern="[789][0-9]{9}" name="cuatomerphone" id="form6Example2"
-                                        placeholder="Please enter Customer Phone" class="form-control" required />
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Submit button -->
-                    <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
-                </form>
-            </div>
-
-        </div>
-    </div>
-    <!-- 2 column grid layout with text inputs for the first and last names -->
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-    </script>
-</body>
-
-</html>
+// Call the function to initiate redirection
+redirectToCheckout();
+</script>

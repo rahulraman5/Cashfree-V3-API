@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" /> <!--/* https://cdnjs.com/libraries/font-awesome */-->
+
     <title>V3 API</title>
 </head>
 
-<body style="background-color: #6933d3; color:white !important;">
+<body style="background-color: #FFFFFF; color:black !important;">
     <?php 
 
    $orderid = $_REQUEST['order_id'];
@@ -35,8 +39,8 @@
         'Accept: application/json',
         'x-api-version: 2022-09-01',
         'Content-Type: application/json',
-        'x-client-id: 13764729ed596674a0f96e06f3746731',
-        'x-client-secret:1f4ee1fd095fcd3cfa702f0c91389c8adca03b5a'
+        'x-client-id: 5709a0de3cc1ab6452f8d0309075',
+        'x-client-secret:a45d1caef2943ae5bc7b4597ccc58aa103163781'
     )
    );
 
@@ -46,23 +50,34 @@
    $resps= json_decode($results, true);
 ?>
 
-
-    <?php if($resps[0]['payment_status'] != 'SUCCESS'){?>
-    <div class="alert" role="alert">
-        <h3 style='text-align:center !important;margin-top:50px;'>Payment Failed
-            <br>Order Id <?php echo $orderid;?>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <table class=" table table-bordered ">
+            <tr>
+                <th >Order ID</th>
+                <th>Payment Status</th>
+            </tr>
+            <tr>
+                <td><?php echo $orderid; ?></td>
+                <td><?php echo $resps[0]['payment_status']; ?></td>
+            </tr>
+        </table>
+        </div>
     </div>
+</div>
 
-    <?php }else{?>
 
-
+<?php if ($resps[0]['payment_status'] != 'SUCCESS') { ?>
     <div class="alert" role="alert">
-        <h3 style='text-align:center !important;margin-top:50px;'>Payment Successful
-            <br>Order Id: <?php echo $orderid; ?>
-
-           <?php } ?>
-            
+        <h3 style='text-align:center !important;margin-top:50px;'><i class="fa-sharp fa-solid fa-circle-xmark fa-bounce fa-xl" style="color: #f22b07;"></i>Payment Failed</h3>
     </div>
+<?php } else { ?>
+    <div class="alert" role="alert">
+        <h3 style='text-align:center !important;margin-top:50px;'><i class="fa-sharp fa-solid fa-check fa-bounce fa-xl" style="color: #11ff00;"></i></i>Payment Successful</h3>
+    </div>
+<?php } ?>
 
 
 

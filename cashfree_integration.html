@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="dist\css\bootstrap.css" />
+
+</head>
+
+<body class="m-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="text-center text-primary mb-5"> Cashfree JS V3 Integration </h1>
+      </div>
+      <div class="col-lg-8"></div>
+      <div class="col-lg-2 form-check">
+        <input class=" form-check-input" type="radio" name="flexRadioDefault" id="testenv">
+        <label class="form-check-label" for="flexRadioDefault1"> Test </label>
+      </div>
+      <div class="col-lg-2 form-check">
+        <input class="form-check-input" type="radio" name="flexRadioDefault" id="prodenv" checked>
+        <label class="form-check-label" for="flexRadioDefault2"> Prod </label>
+      </div>
+      <div class="col-lg-12 text-center text-info mt-5 mb-5">
+        <h2> Sample Product to Buy </h2>
+      </div>
+      <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="toy1.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title">Toy Bike</h5>
+            <p class="card-text">1 Rupees</p>
+            <form class="order-form" action="index.php" method="post">
+              <input type="hidden" name="product_name" value="Toy Bike">
+              <input type="hidden" name="product_price" value="1.00">
+              <button type="submit" class="btn btn-primary">Buy Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="toy2.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title">Toy Bike</h5>
+            <p class="card-text">10 Rupees</p>
+            <form class="order-form" action="index.php" method="post">
+              <input type="hidden" name="product_name" value="Toy Bike">
+              <input type="hidden" name="product_price" value="10.00">
+              <button type="submit" class="btn btn-primary">Buy Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card" style="width: 18rem;">
+          <img src="toy3.jpg" class="card-img-top" alt="...">
+          <div class="card-body text-center">
+            <h5 class="card-title">Toy Bike</h5>
+            <p class="card-text">25 Rupees</p>
+            <form class="order-form" action="index.php" method="post">
+              <input type="hidden" name="product_name" value="Toy Bike">
+              <input type="hidden" name="product_price" value="25.00">
+              <button type="submit" class="btn btn-primary">Buy Now</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
