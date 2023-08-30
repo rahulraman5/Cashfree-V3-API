@@ -32,8 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         "Content-Type: application/json",
         "x-api-version: 2022-09-01",
-        "x-client-id: 5709a0de3cc1ab6452f8d0309075",
-        "x-client-secret: a45d1caef2943ae5bc7b4597ccc58aa103163781"
+        "x-client-id: 5709a0deXXXXXXXXXXXXXX",
+        "x-client-secret: a45d1caef2XXXXXXXXXXXXXXXXX"
     ));
 
     $response = curl_exec($ch); // Capture the response here
